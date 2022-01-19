@@ -139,7 +139,7 @@ sporadic_checksum_disable:
 	ORG	0AE3h
 	ret
 
-; STicking some routines in the checksum area too.
+; Sticking some routines in the checksum area too.
 
 maybe_allow_coin_in:
 	; Check if in free play
@@ -194,3 +194,9 @@ credit_count_draw_hook:
 insert_coin_screen_hook:
 	ORG	02B12h
 	jp	maybe_show_insert_coin_screen
+
+; Another checksum, incremented every time a bubble is produced.
+; It simply returns when it would normally cause a fuss.
+bubble_checksum_disable:
+	ORG	660Ah
+	ret

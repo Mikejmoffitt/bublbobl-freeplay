@@ -24,9 +24,9 @@ prg.bin: prg.o
 	$(P2BIN) $< $@ -r \$$-0x07FFF
 
 bublbobl: prg.bin
-	mkdir -p bublbobl
-	cp data/* bublbobl/
-	cp prg.bin bublbobl/a78-06-1.51
+	mkdir -p $@
+	cp data/* $@/
+	cp $< $@/a78-06-1.51
 
 test: bublbobl
 	$(MAME) -rompath $(shell pwd) -debug bublbobl
